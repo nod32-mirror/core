@@ -12,7 +12,7 @@ loguru = "^0.7.2"
 click = "^8.1.7"
 
 [tool.poetry.scripts]
-nod32-mirror = "nod32_mirror._cli:cli"
+nod32-mirror = "nod32_mirror.__main__:cli"
 
 [build-system]
 requires = ["poetry-core"]
