@@ -1,5 +1,8 @@
 """
-CLI
+Command line interface for nod32_mirror.
 """
 
-__version__ = "0.1.0"
+from nod32_mirror._cli import cli
+
+if __name__ == "__main__":
+    cli()

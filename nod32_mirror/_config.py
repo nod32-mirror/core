@@ -5,10 +5,11 @@ Config initializator
 from configparser import ConfigParser
 import os
 
+
 def init(path: str) -> ConfigParser:
     """
     Initialize a ConfigParser with the specified path.
-    
+
     Args:
         path (str): the path to the directory
 
@@ -22,6 +23,7 @@ def init(path: str) -> ConfigParser:
     config.read(os.path.join(path, "config.ini"))
     process_config(config)
     return config
+
 
 def set_default(config: ConfigParser, section, key, value) -> None:
     """
@@ -42,8 +44,9 @@ def set_default(config: ConfigParser, section, key, value) -> None:
     if not config.has_option(section, key):
         config.set(section, key, value)
 
+
 # pylint: disable=unused-argument
-def process_config(config: ConfigParser) -> None: 
+def process_config(config: ConfigParser) -> None:
     """
     todo
     """
