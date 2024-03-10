@@ -5,9 +5,9 @@ Config initializator
 import os
 from configobj import ConfigObj
 from configobj.validate import Validator
+from nod32_mirror._tools import create_files
 
-
-def _config(path: os.path) -> ConfigObj:
+def _config(path: os.path = "config.ini") -> ConfigObj:
     """
     Initialize a ConfigParser with the specified path.
 
@@ -26,4 +26,6 @@ def _config(path: os.path) -> ConfigObj:
     if result is not True:
         raise ValueError(f"Configuration validation failed: {result}")
     config.write()
+    service_path = os.path.join(".", "service")
+    create_files([os.path.join(service_path, "keys.valid")])
     return config

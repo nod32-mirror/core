@@ -3,6 +3,7 @@ Tools for nod32_mirror module
 """
 
 from urllib.parse import urlparse, urlunparse
+import os
 
 
 def add_scheme(url: str, scheme: str = "https") -> str:
@@ -21,3 +22,17 @@ def add_scheme(url: str, scheme: str = "https") -> str:
         if not urlparse(url).scheme
         else url
     )
+
+def create_files(files: list[str]) -> None:
+    """
+    Create directories and files as specified in the input list of files.
+    Parameters:
+        files (list[str]): file paths to be created
+    Returns:
+        None
+    """
+    for file in files:
+        os.makedirs(os.path.dirname(file), exist_ok=True)
+        if not os.path.isfile(file):
+            with open(file, "w", encoding="utf-8") as f:
+                f.write("")

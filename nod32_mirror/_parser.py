@@ -3,7 +3,7 @@ Retrieve information about ESET NOD32 versions.
 """
 from configobj import ConfigObj
 import httpx
-from nod32_mirror._versions import versions
+from nod32_mirror._versions import _versions
 
 
 def get_info(version: str, client: httpx.Client = httpx.Client):
@@ -17,7 +17,7 @@ def get_info(version: str, client: httpx.Client = httpx.Client):
     Returns:
         dict: A dictionary containing the version and a list of files.
     """
-    index = ConfigObj(client.get(versions[version]["index"]).text.splitlines())
+    index = ConfigObj(client.get(_versions[version]["index"]).text.splitlines())
     files = []
     versionid = 0
     for section in index.sections:
@@ -30,4 +30,4 @@ def get_info(version: str, client: httpx.Client = httpx.Client):
             int(current.get("versionid"))) > versionid
         ):
             versionid = int(current["versionid"])
-    return {"version": versionid, "files": files, "name": versions[version]["name"]}
+    return {"version": versionid, "files": files, "name": _versions[version]["name"]}

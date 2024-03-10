@@ -24,6 +24,7 @@ def download_file(
     Returns:
         None
     """
+    os.makedirs(os.path.dirname(target_path), exist_ok=True)
     with open(target_path, "wb") as f:
         f.write(client.get(url).content)
 

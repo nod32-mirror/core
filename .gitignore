@@ -5,3 +5,5 @@ update.ver
 .ruff_cache
 /*.py
 /test*.*
+/service
+keys.valid

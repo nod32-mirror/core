@@ -2,7 +2,7 @@
 ESET versions config
 """
 
-versions = {
+_versions = {
     "ep6": {
         "name": "ESET NOD32 Endpoint 6",
         "index": "eset_upd/ep6.6/dll/update.ver",
