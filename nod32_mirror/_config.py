@@ -6,7 +6,7 @@ from configparser import ConfigParser
 import os
 
 
-def init(path: str) -> ConfigParser:
+def init(path: os.path) -> ConfigParser:
     """
     Initialize a ConfigParser with the specified path.
 
@@ -20,7 +20,7 @@ def init(path: str) -> ConfigParser:
         os.mkdir(path)
 
     config = ConfigParser()
-    config.read(os.path.join(path, "config.ini"))
+    config.read(path)
     process_config(config)
     return config
 
