@@ -4,3 +4,4 @@ __pycache__
 update.ver
 .ruff_cache
 /*.py
+/test*.*

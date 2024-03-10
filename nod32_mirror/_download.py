@@ -7,6 +7,7 @@ from urllib.parse import urlparse
 import concurrent.futures
 import httpx
 
+
 def download_file(
     url: str,
     client: httpx.Client,
@@ -25,6 +26,7 @@ def download_file(
     """
     with open(target_path, "wb") as f:
         f.write(client.get(url).content)
+
 
 class Download:
     """
