@@ -10,6 +10,7 @@ python = "^3.10"
 httpx = "^0.27.0"
 loguru = "^0.7.2"
 click = "^8.1.7"
+configobj = "^5.0.8"
 
 [tool.poetry.scripts]
 nod32-mirror = "nod32_mirror.__main__:cli"
