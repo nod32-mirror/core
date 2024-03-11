@@ -10,6 +10,7 @@ from configobj import ConfigObj
 from nod32_mirror._tools import add_scheme
 from nod32_mirror._versions import _versions
 
+
 def test_key(key: str, config: ConfigObj) -> bool:
     """
     Checks if the given key is valid.
@@ -38,7 +39,8 @@ def test_key(key: str, config: ConfigObj) -> bool:
         client.close()
     return True
 
-def get_key(config: ConfigObj) -> str:
+
+def get_key(config: ConfigObj) -> tuple:
     """
     Get the key from the config.
 
@@ -48,7 +50,9 @@ def get_key(config: ConfigObj) -> str:
     Returns:
         str: The key.
     """
-    keys_filepath = os.path.join(config["SCRIPT"]["DIRECTORIES"]["service"], "keys.valid")
+    keys_filepath = os.path.join(
+        config["SCRIPT"]["DIRECTORIES"]["service"], "keys.valid"
+    )
     with open(keys_filepath, "r", encoding="utf-8") as f:
         keys = f.read().splitlines()
     if len(keys) == 0:
@@ -61,4 +65,4 @@ def get_key(config: ConfigObj) -> str:
         f.write("\n".join(keys))
     if len(keys) == 0:
         raise ValueError("No valid keys")
-    return keys[0].split(":")
+    return tuple(keys[0].split(":"))

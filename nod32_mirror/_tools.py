@@ -23,6 +23,7 @@ def add_scheme(url: str, scheme: str = "https") -> str:
         else url
     )
 
+
 def create_files(files: list[str]) -> None:
     """
     Create directories and files as specified in the input list of files.

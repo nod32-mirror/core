@@ -7,3 +7,4 @@ update.ver
 /test*.*
 /service
 keys.valid
+/config.ini

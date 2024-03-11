@@ -7,6 +7,7 @@ from configobj import ConfigObj
 from configobj.validate import Validator
 from nod32_mirror._tools import create_files
 
+
 def _config(path: os.path = "config.ini") -> ConfigObj:
     """
     Initialize a ConfigParser with the specified path.
